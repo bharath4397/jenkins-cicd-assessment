@@ -9,21 +9,15 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Build') {
             steps {
-                sh 'python3 --version'
-            }
-        }
-
-        stage('Build Docker Image') {
-            steps {
-                sh 'echo Building Docker Image'
+                sh 'echo Building application'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'echo Deploying Application'
+                sh 'echo Deployment successful'
             }
         }
     }
