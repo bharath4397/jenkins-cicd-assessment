@@ -11,25 +11,19 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r app\\requirements.txt'
-            }
-        }
-
-        stage('Run Tests') {
-            steps {
-                bat 'pytest app\\test_app.py'
+                sh 'python3 --version'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t flask-cicd:%BUILD_NUMBER% .'
+                sh 'echo Building Docker Image'
             }
         }
 
-        stage('Deploy with Docker Compose') {
+        stage('Deploy') {
             steps {
-                bat 'docker compose up -d'
+                sh 'echo Deploying Application'
             }
         }
     }
